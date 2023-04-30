@@ -1,0 +1,23 @@
+<div class="container">
+    <div class="row">
+        <h1>{{title}} --</h1>
+    </div>
+    <div class="row my-4">
+        <div class="col-6"><app-search (inputFilter)="onInputFilter($event)"></app-search></div>
+        <div class="col-6"><app-button  (parentFunCall)="onAddItem($event)" (updateFunCall)="onUpdate($event)" [title]="'Order'" [buttonTitle]="'Add'" #container></app-button></div>    
+    </div>
+    <div class="row">
+        <ag-grid-angular
+           style="height:500px;width: 900px;"
+           class="ag-theme-alpine"
+           [defaultColDef]="defaultColDef"
+           [gridOptions]="gridOptions"
+           [rowSelection]="rowSelection"
+           [columnDefs]="columnDefs"
+           [rowData]="rowData"
+           [animateRows]="true"
+           [getRowId]="getRowId"
+           (gridReady)="onGridReady($event)"
+     ></ag-grid-angular>
+    </div>
+</div>

@@ -1,0 +1,10 @@
+<div class="ml-3 align">
+    <div class="my-2">
+        <label [for]="label">{{label}}<span *ngIf="required" class="error">*</span></label>
+    </div>
+    <div class="mb-3">
+        <input [name]="id" [type]="type" [placeholder]="placeholder" [min]="min" [max]="max" (focusout)="onInput()" #inputValue>
+        <p *ngIf="require" class="error">This field required*</p>
+        <p class="error"><span *ngIf="numberMinError">Minimum Number is {{min}}</span><span *ngIf="numberMaxError">Maximum Number is {{max}}</span></p>
+    </div>
+</div>

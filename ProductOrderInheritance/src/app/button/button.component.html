@@ -1,0 +1,36 @@
+<ng-template #content let-modal>
+	<div class="modal-header">
+		<h4 class="modal-title" id="modal-basic-title">Profile update</h4>
+		<button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+	</div>
+	<div class="modal-body">
+		<form #myForm="ngForm">
+			<div class="mb-3">
+				<div *ngFor="let form of formValue">
+					<div class="my-3">
+						<label for="dateOfBirth">{{form.label}}</label>
+					</div>
+					<div>
+						<input
+						[placeholder]="form.placeholder"
+						[type]="form.type"
+						[name]="form.name"
+						[min]="form.min"
+						[ngModel]="form.value"
+						#input="ngModel"
+						required
+					/>
+					<span class="error" *ngIf="(!input.valid && input.touched) || (isSubmit && !input.valid)">This field Required*</span>
+					</div>
+					
+				</div>
+			</div>
+		</form>
+	</div>
+	<div class="modal-footer">
+		<button type="button" class="btn btn-outline-dark" (click)="myForm.valid ? modal.close(myForm):error(myForm)">{{buttonTitle}}</button>
+	</div>
+</ng-template>
+
+<button class="btn btn-sm btn-outline-primary" (click)="addData()">+Add</button>
+

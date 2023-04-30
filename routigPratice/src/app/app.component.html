@@ -1,0 +1,28 @@
+<h1>App Component</h1>
+<div class="row">
+  <div class="col-1"></div>
+  <div class="col-10">
+    <div class="row bg-dark py-3">
+      <div class="col-2"><button class="btn btn-warning" routerLink="">Home</button></div>
+      <div class="col-2"><button class="btn btn-warning" routerLink="about">About</button></div>
+      <div class="col-2"><button class="btn btn-warning" routerLink="product">Product</button></div>
+      <div class="col-2"><button class="btn btn-warning" routerLink="service">Service</button></div>
+      <div class="col-2"><button class="btn btn-warning" routerLink="contact">Contact</button></div>
+      <div class="col-2"><button class="btn btn-warning" routerLink="error">Error</button></div>
+    </div>
+    <div class="row bg-dark py-3">
+     
+      <div class="col-2"><button class="btn btn-warning" routerLink="prefix">Prefix</button></div>
+      <div class="col-2"><button class="btn btn-warning" routerLink="params/aditya">Params</button></div>
+      <div class="col-2"><button class="btn btn-warning" routerLink="resolve">Resolve</button></div>
+    </div>
+  </div>
+  <div class="col-1"></div>
+</div>
+
+<div class="row">
+  <div class="text-center">
+    <app-error></app-error>
+    <router-outlet></router-outlet>
+  </div>
+</div>

@@ -1,0 +1,19 @@
+input{
+    border: none;
+    border-bottom: 1px solid gray;
+    width: 80%;
+}
+
+input:focus{
+    /* background-color: black */
+    /* border-color: rgb(195, 202, 209); */
+    outline: none;
+}
+
+.align{
+    padding: 10px;
+    text-align: left !important;
+}
+.error{
+    color: red;
+}

@@ -1,0 +1,123 @@
+<div class="container">
+    <!-- <button class="btn btn-success" (click)="isValide = true">submit</button>
+
+    <h1 [ngClass]="{'my':isValide,'name':!isValide}">e hai india ka tyohar</h1> -->
+
+
+
+
+    <!-- <h1 *ngIf="isValide; else elseblock">digvesh dadhaniya</h1>
+    <ng-template #elseblock>
+        <h1>hello no name display</h1>
+    </ng-template>
+    <p *appUnless="condition" class="unless a">
+        (A) This paragraph is displayed because the condition is false.
+      </p>
+      
+      <p *appUnless="!condition" class="unless b">
+        (B) Although the condition is true,
+        this paragraph is displayed because appUnless is set to false.
+      </p> -->
+
+    <!-- <h1 [ngClass]="isValide?'my':'name'">hello digvesh dadhaniya H</h1> -->
+
+    <!-- <h1 [ngStyle]="currentStyles">hello digvesh dadhaniya H</h1> -->
+    <!-- <h1 [appHighlight]="color">hello digvesh dadhaniya</h1> -->
+    <!-- <h1>My First Attribute Directive</h1>
+
+<h2>Pick a highlight color</h2>
+<div>
+  <input type="radio" name="colors" (click)="color='lightgreen'">Green
+  <input type="radio" name="colors" (click)="color='yellow'">Yellow
+  <input type="radio" name="colors" (click)="color='cyan'">Cyan
+</div>
+<p [appHighlights]="color" defaultColor="violet" >helllo digvesh future of rapidops.</p> -->
+    <!-- <div>
+        <select (change) = "onChange($event)">
+            <option value="Laptop">Laptop</option>
+            <option value="Mobile">Mobile</option>
+            <option value="TV">TV</option>
+            <option value="Washing Machine">Washing Machine</option>
+        </select>
+    </div>
+
+    <div [ngSwitch]="currentValue">
+        <h1 *ngSwitchCase="'Laptop'">Laptop</h1>
+        <h1 *ngSwitchCase="'Mobile'">Mobile</h1>
+        <h1 *ngSwitchCase="'TV'">TV</h1>
+        <h1 *ngSwitchCase="'Washing Machine'">Washing Machine</h1>
+    </div> -->
+
+    <!-- <table border="2">
+        <thead>
+            <tr>
+                <th>Product Image</th>
+                <th>Product Name</th>
+                <th>Product Id</th>
+                <th>Product Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let product of products;index as i">
+                <td>{{i}}</td>
+                <td>{{product.productName}}</td>
+                <td>{{product.productId}}</td>
+                <td>{{product.productPrice}}</td>
+            </tr>
+        </tbody>
+    </table> -->
+
+
+
+    <!-- //upercase
+    //lowercase -->
+    <!-- <h1>{{color | titlecase}}</h1>
+    <h1>{{color | slice:0:7 | uppercase}}</h1>
+    <hr>
+    <h2>{{date | date:'short' }}</h2>
+    <h2>{{date | date:'medium' }}</h2>
+    <h2>{{date | date:'shortTime' }}</h2>
+    <h2>{{date | date:'fullDate' | uppercase }}</h2>
+    <h2>{{date | date:'long' }}</h2>
+    <h2>{{date | date:'shortDate' }}</h2>
+    <h2>{{date | date:'mm:ss' }}</h2>
+    <hr>
+    <h2>{{a | currency:'EUR'}}</h2>
+    <hr>
+    <h2>{{color | mycustompipe : '4'}}</h2>
+
+    <ul>
+        <li *ngFor="let name of nameArr">
+            {{name | mycustompipe:'3'}}
+        </li>
+    </ul> -->
+
+    <div class="form-group">
+        <label for="exampleFormControlInput1">Email address</label>
+        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+    </div>
+    <table class="table table-dark table-hover">
+     
+            <thead>A
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Product Name</th>
+                <th scope="col">Price</th>
+                <th scope="col">Available</th>
+                
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let product of products;index as i">
+                <th scope="row">{{i}}</th>
+                <td>{{product.productName}}</td>
+                <td>{{product.productPrice}}</td>
+                <td>{{product.available}}</td>
+               
+              </tr>
+            </tbody>
+       
+      </table>
+
+
+</div>

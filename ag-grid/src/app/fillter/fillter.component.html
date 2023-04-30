@@ -1,0 +1,10 @@
+<p>fillter works!</p>
+<button (click)="irelandAndUk()">Ireland &amp; UK</button>
+<ag-grid-angular
+      style="width: 100%; height: 100%;"
+      class="ag-theme-alpine"
+      [columnDefs]="columnDefs"
+      [defaultColDef]="defaultColDef"
+      [rowData]="rowData"
+      (gridReady)="onGridReady($event)"
+></ag-grid-angular>

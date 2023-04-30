@@ -1,0 +1,27 @@
+/* You can add global styles to this file, and also import other style files */
+@import 'ag-grid-community/styles/ag-grid.css';
+@import 'ag-grid-community/styles/ag-theme-alpine.css';
+
+html, body {
+   height: 100%;
+   width: 100%;
+   padding: 5px;
+   box-sizing: border-box;
+   -webkit-overflow-scrolling: touch;
+}
+
+/* .ag-header-group-cell-with-group{
+   background-color: #00e7b1 !important;
+ } */
+
+ .color{
+   background-color: #00e7b1 !important;
+ }
+
+ .medals-group{
+  background-color: rgb(183, 212, 219);
+ }
+
+ .participant-group{
+  background-color: rgb(226, 177, 159);
+ }

@@ -1,0 +1,18 @@
+<div class="container">
+    <h1>{{Account}} ==> form</h1>
+    <account-input [inputLabelTitle]="enterName" [inputType]="Inputtype" (valueOfInput)="onInput($event)"></account-input><br><br>
+    <account-radio  (radioValue)="onRadio($event)"></account-radio><br>
+    <account-checkbox (checkboxValue)="oncheckBox($event)"></account-checkbox><br>
+    <account-dropdown (selectValue)="onSelect($event)"></account-dropdown><br><br>
+    <account-date (moveDate)="onDate($event)" (dateType)="onDateTypeChange($event)"></account-date><br><br>   
+    <button (click)="onSubmit()" class="btn btn-primary">Submit</button>
+</div>
+<div class="container">
+    <account-table ></account-table>
+</div>
+
+
+
+
+
+

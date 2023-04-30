@@ -1,0 +1,30 @@
+
+.template{
+    border: 1px solid rgb(214, 210, 210);
+    /* border-radius: 10px; */
+    margin-left: 90px !important;
+    width: 50%;
+    box-shadow: 5px 5px 5px rgb(224, 213, 213);
+}
+
+.dynamicArray{
+    width: 80%;
+    /* font:30px; */
+    /* margin-right: 10px !important; */
+    border: 3px solid rgb(75, 77, 77);
+    box-shadow: 5px 5px 5px rgb(224, 213, 213);
+    border-radius: 10px;
+}
+textarea{
+    font-size: 30px;
+    border: none;
+}
+
+textarea:focus{
+    outline: none;
+}
+
+.error{
+    color:red;
+    font-size: 20px;
+}

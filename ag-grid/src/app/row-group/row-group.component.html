@@ -1,0 +1,15 @@
+<h1>row-group works!</h1>
+<button (click)="showNode()">submit</button>
+<button (click)="onRowDataA()">onRowDataA</button>
+<button (click)="onRowDataB()">onRowDatab</button>
+<ag-grid-angular
+    style="width: 100%; height: 100%;"
+    class="ag-theme-alpine"
+    [columnDefs]="columnDefs"
+    [defaultColDef]="defaultColDef"
+    [autoGroupColumnDef]="autoGroupColumnDef"
+    [animateRows]="true"
+    [rowData]="rowData"
+    (gridReady)="onGridReady($event)"
+  ></ag-grid-angular>   
+

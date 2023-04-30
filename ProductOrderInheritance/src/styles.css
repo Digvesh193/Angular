@@ -1,0 +1,9 @@
+/* You can add global styles to this file, and also import other style files */
+@import 'ag-grid-community/styles/ag-grid.css';
+@import 'ag-grid-community/styles/ag-theme-alpine.css';
+
+
+.container{
+    border: 2px solid rgb(164, 209, 226);
+    padding: 10px 0px 10px 5px;
+}

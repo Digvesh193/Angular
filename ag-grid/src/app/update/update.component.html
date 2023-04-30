@@ -1,0 +1,24 @@
+<h1>update works!</h1>
+
+<div>
+    <button (click)="reverseItems()">Reverse</button>
+    <button (click)="addFiveItems(true)">Append</button>
+    <button (click)="addFiveItems(false)">Prepend</button>
+    <button (click)="removeSelected()">Remove Selected</button>
+    <button (click)="updatePrices()">Update Prices</button>
+    <button id="groupingOn">GroupOn</button>
+    <button id="groupingOff">GroupOff</button>
+    <button (click)="showPartiCularNode()">showPartiCularNode</button>
+</div>
+
+<ag-grid-angular
+    style="height: 100%;width: 100%;"
+    class="ag-theme-alpine"
+    [columnDefs]="columnDefs"
+    [defaultColDef]="defaultDefs"
+    [rowSelection]="rowSelection"
+    [animateRows]="true"
+    [rowData]="rowData"
+    [getRowId]="getRowId"
+    (gridReady)="onGridReady($event)"
+></ag-grid-angular>

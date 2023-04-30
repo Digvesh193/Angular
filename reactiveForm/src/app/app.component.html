@@ -1,0 +1,37 @@
+<input id="name" type="text" [formControl]="name">
+<h2>{{name.value}}</h2>
+
+<form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+  <label>{{profileForm.value.firstName}}</label>
+  <input formControlName="firstName">
+  <input formControlName="lastName">
+  <hr>
+  <div formGroupName="address">
+    <h2>Address</h2>
+
+    <label for="street">Street: </label>
+    <input id="street" type="text" formControlName="street">
+  
+    <label for="city">City: </label>
+    <input id="city" type="text" formControlName="city">
+  
+    <label for="state">State: </label>
+    <input id="state" type="text" formControlName="state">
+  
+    <label for="zip">Zip Code: </label>
+    <input id="zip" type="text" formControlName="zip">
+  </div>
+
+  <hr>
+  <h1>skills</h1>
+  <div formArrayName="skills">
+    <ng-container *ngFor="let skill of getSkill;index as i">
+      <input type="text" placeholder="add skills" formControlName="{{i}}">
+    </ng-container>
+    <button (click)="onAddSkill()">+ Add skills</button>
+  </div>
+  <button type="submit" [disabled]="!profileForm.valid">Submit</button>
+  <button (click)="updateProfile()">Update</button>
+</form>
+
+<h1>{{profileForm.status}}</h1>

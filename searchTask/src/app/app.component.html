@@ -1,0 +1,10 @@
+<div class="container">
+    <div class="row">
+      <div class="col-6"> <input type="text" (input)="onInputChange($event)"></div>
+    </div>
+    <div class="row">
+      <ul class="list-group">
+        <li class="list-group-item" *ngFor="let searchItem of listArray" [innerHTML]="searchItem"></li>
+      </ul>
+    </div>
+</div>

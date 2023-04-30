@@ -1,0 +1,54 @@
+<h1>sort-order-visibility-rowgroup works!</h1>
+
+<table>
+    <tbody>
+        <tr>
+            <td>Sort:</td>
+            <td>
+                <button (click)="onBtSortAthlete()">Sort Athlete</button>
+                <button (click)="onBtSortCountryThenSportClearOthers()">Sort Country, then Sport - Clear Others</button>
+                <button (click)="onBtClearAllSorting()">Clear All Sorting</button>
+            </td>
+        </tr>   
+        <tr>
+            <td>Column Order:</td>
+            <td>
+                <button (click)="onBtOrderColsMedalsFirst()">Show Medals First</button>
+                <button (click)="onBtOrderColsMedalsLast()">Show Medals Last</button>
+            </td>
+        </tr>
+        <tr>
+            <td>Column Visibility:</td>
+            <td>
+              <button (click)="onBtHideMedals()">Hide Medals</button>
+              <button (click)="onBtShowMedals()">Show Medals</button>
+            </td>
+        </tr>
+        <tr>
+            <td>Row Group:</td>
+            <td>
+              <button (click)="onBtRowGroupCountryThenSport()">
+                Group Country then Sport
+              </button>
+              <button>
+                Remove Country
+              </button>
+              <button>
+                Clear All Groups
+              </button>
+            </td>
+          </tr>
+    </tbody>
+</table>
+
+ <ag-grid-angular
+      style="width: 100%; height: 100%;"
+      class="ag-theme-alpine"
+      [columnDefs]="columnDefs"
+      [defaultColDef]="defaultColDef"
+      [sideBar]="sideBar"
+      [rowGroupPanelShow]="rowGroupPanelShow"
+      [pivotPanelShow]="pivotPanelShow"
+      [rowData]="rowData"
+      (gridReady)="onGridReady($event)"
+    ></ag-grid-angular>

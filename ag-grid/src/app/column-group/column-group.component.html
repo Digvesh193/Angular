@@ -1,0 +1,16 @@
+<h1>column-group works!</h1>
+
+<button (click)="onBtNoGroups()">NoGroup</button>
+<button (click)="onMedalsInGroupOnly()">MedalGroup</button>
+<button (click)="onParticipantInGroupOnly()">Participant In Group</button>
+<button (click)="onParticipantAndMedalsInGroups()">Participant And Medals</button>
+
+<ag-grid-angular
+    style="width: 100%; height: 100%;"
+    class="ag-theme-alpine"
+    [columnDefs]="columnDefs"
+    [defaultColDef]="defaultColDef"
+    [rowData]="rowData"
+    (gridReady)="onGridReady($event)"
+  ></ag-grid-angular> 
+    

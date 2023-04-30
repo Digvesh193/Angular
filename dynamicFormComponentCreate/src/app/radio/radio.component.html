@@ -1,0 +1,11 @@
+<div class="ml-3 align">
+    <div class="my-2">
+        <label [for]="label">{{label}}<span *ngIf="required" class="error">*</span></label>
+    </div>
+    <div class="mb-3">
+        <span *ngFor="let item of radioArray">
+            {{item}} <input name="id" type="radio" [value]="item"  [required]="required" (input)="onChange($event)">
+        </span>
+        <p *ngIf="require" class="error">This field required*</p>   
+    </div>
+</div>

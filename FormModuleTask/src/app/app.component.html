@@ -1,0 +1,8 @@
+<div class="row mx-4">
+    <form [formGroup]="userDetailsform" (ngSubmit)="onSubmit()">
+        <app-form-creator [fields]="fields"></app-form-creator>
+        <button type="submit" class="btn btn-success mx-4 my-4">Submit</button>
+    </form>
+</div>
+
+<!-- [formgroup]="userDetailsform" -->

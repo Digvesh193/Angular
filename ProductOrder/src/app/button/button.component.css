@@ -1,0 +1,10 @@
+input{
+    background-color: rgb(249, 248, 248);
+    outline: none;
+    border: none;
+    border-bottom: 2px solid black;
+    padding: 5px;
+}
+.error{
+    color: red;
+}

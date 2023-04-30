@@ -1,0 +1,18 @@
+<h1>row-data works!</h1>
+
+<div class="example-section">
+    <button (click)="saveState()">Save State</button>
+    <button (click)="restoreState()">Restore State</button>
+    <button (click)="resetState()">Reset State</button>
+</div>
+
+<ag-grid-angular
+style="height: 800px;width: 100%;"
+class="ag-theme-alpine"
+[defaultColDef]="defaultColDef"
+[columnDefs]="columnDefs"
+[columnTypes]="columnTypes"
+[rowData]="rowData"
+(gridReady)="onGridReady($event)"
+>
+</ag-grid-angular>

@@ -1,0 +1,28 @@
+<div class="container">
+    <div class="row">
+        <h1>{{title}}</h1>
+    </div>
+    <div class="row my-4">
+        <div class="col-6"><app-search (inputFilter)="onInputFilter($event)"></app-search></div>
+        <div class="col-6"><app-button  (parentFunCall)="onAddItem()" [title]="title" [buttonTitle]="'Add'"></app-button></div>    
+    </div>
+    <div class="row">
+        <ag-grid-angular
+           style="height:500px;width: 900px;"
+           class="ag-theme-alpine"
+           [gridOptions]="gridOptions"
+           [columnDefs]="columnDefs"
+           [rowData]="rowData"
+           [defaultColDef]="defaultColDef"
+           [rowSelection]="rowSelection"
+           [getRowId]="getRowId"
+           (gridReady)="onGreadReady($event)"
+           [animateRows]="true"
+     ></ag-grid-angular>
+    </div>
+</div>
+<!-- 
+[isExternalFilterPresent]="isExternalFilterPresent"
+           [doesExternalFilterPass]="doesExternalFilterPass" -->
+
+
