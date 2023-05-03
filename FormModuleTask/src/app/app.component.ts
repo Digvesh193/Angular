@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, DoCheck, OnInit, Type, ViewChild } from '@angular/core';
 import { FormArray, FormControl, FormGroup } from '@angular/forms';
+import { TitleStrategy } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { AddComponentComponent } from './add-component/add-component.component';
 import { ComponentMeta } from './componentMetaData/componentMeta.class';
@@ -113,21 +114,16 @@ export class AppComponent implements OnInit{
 
   isSelect:boolean=false
 
-  onAddText(content:any,componentType: string){
-    switch(componentType){
-      case "text": 
-      this.isSelect = false
+  onAddText(content:any){
         this.open(content,ComponentMeta.textMetaData)
-        break;
-      case "textarea": 
-      this.isSelect = false
-        this.open(content,ComponentMeta.textMetaData)
-        break;
-      case "select": 
-        this.isSelect = true
-        this.open(content,ComponentMeta.selectMetaData)
-        break;
-    }
+  }
+
+  onAddTextArea(content:any){
+    this.open(content,ComponentMeta.textMetaData)
+  }
+
+  onAddSelectOptions(content:any){
+    this.open(content,ComponentMeta.selectMetaData)
   }
 
 
@@ -138,26 +134,18 @@ export class AppComponent implements OnInit{
   })
   currentComponentForm !: any
 
-  count = 0;
-  selectMeta = [{value:"label0",label:"value0"}]
-
   open(content:any,componentMetaData:Array<inputJSON>){
     this.metaField =[]
     this.metaField = this.addInputData(componentMetaData,this.addComponentForm)    
+    // console.log("matafield",this.metaField)
     this.modalService.open(content).result.then(
       (result)=>{
         const resultx : any = this.addComponentForm.value
-        let obj:inputJSON = {
-          displayName:<string>resultx['displayName'],
-          fieldName:<string>resultx['fieldName'],
-          type:<string>resultx['type'],
-          minLength:<string>resultx['minLength'],
-          maxLength:<string>resultx['maxLength'],
-          isRequired:resultx["required"]=="true"?true:false,
-          options :resultx["selectForm"],
-          multipleSelection:resultx["multipleSelection"]=="true"?true:false,
-          defaultValue:resultx["defaultValue"]
-        }
+        // console.log(resultx)
+
+        let obj:inputJSON = this.makeJSONData(this.addComponentForm.value)
+        // console.log("[[[[[[[[[[[[",obj)
+
         this.inputJsonData.push(obj)
         this.fields = this.addInputData(this.inputJsonData,this.userDetailsform)
         this.formcommp.addDynamicComponent({
@@ -168,6 +156,7 @@ export class AppComponent implements OnInit{
             value: obj.defaultValue?obj.defaultValue:""
           },
         })
+
         this.reset()
         this.addComponentForm.reset()
       }
@@ -175,6 +164,20 @@ export class AppComponent implements OnInit{
   }
   reset(){
     (<FormArray>(this.addComponentForm.get('selectForm'))).clear();
+  }
+
+  makeJSONData(resultx: any){
+    return {
+      displayName:<string>resultx['displayName'],
+      fieldName:<string>resultx['fieldName'],
+      type:<string>resultx['type'],
+      minLength:<string>resultx['minLength']?resultx['minLength']:"",
+      maxLength:<string>resultx['maxLength']?resultx['maxLength']:"",
+      isRequired:resultx["required"]=="true"?true:false,
+      options :resultx["selectForm"],
+      multipleSelection:resultx["multipleSelection"]=="true"?true:false,
+      defaultValue:resultx["defaultValue"]?resultx["defaultValue"]:""
+    }
   }
   
 

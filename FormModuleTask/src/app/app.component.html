@@ -18,7 +18,7 @@
 			</form>
 		</div>
 		<div class="modal-footer">
-			<button type="submit" [disabled]="!addComponentForm.valid" class="btn btn-outline-dark" (click)="modal.close()">Add</button>
+			<button type="submit"  class="btn btn-outline-dark" (click)="modal.close();">Add</button>
 		</div>
 	</div>
 	</ng-template>
@@ -27,8 +27,8 @@
 
 
 <div class="row">
-    <button class="btn btn-success mx-4 my-4 col-3" (click)="onAddText(content,'text')">AddText</button>
-    <button class="btn btn-success mx-4 my-4 col-3" (click)="onAddText(content,'textarea')">AddTextArea</button>
-    <button class="btn btn-success mx-4 my-4 col-3" (click)="onAddText(content,'select')">AddSelect</button>
+    <button class="btn btn-success mx-4 my-4 col-3" (click)="onAddText(content)">AddText</button>
+    <button class="btn btn-success mx-4 my-4 col-3" (click)="onAddTextArea(content)">AddTextArea</button>
+    <button class="btn btn-success mx-4 my-4 col-3" (click)="onAddSelectOptions(content)">AddSelect</button>
 </div>
 

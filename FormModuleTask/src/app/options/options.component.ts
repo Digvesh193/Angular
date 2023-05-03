@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { FormArray, FormGroup, FormControl } from '@angular/forms';
 import { BaseComponent } from '../BaseComponent/baseComponent.directive';
 
@@ -8,9 +8,13 @@ import { BaseComponent } from '../BaseComponent/baseComponent.directive';
   styleUrls: ['./options.component.css'],
   changeDetection:ChangeDetectionStrategy.OnPush
 })
-export class OptionsComponent extends BaseComponent {
+export class OptionsComponent extends BaseComponent implements OnInit {
     constructor(){
       super()
+    }
+
+    ngOnInit(): void {
+      console.log(this.formGroups)
     }
 
     get getSkill(){

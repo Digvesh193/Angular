@@ -16,16 +16,17 @@ export class SelectComponent extends BaseComponent implements OnInit {
   multipleSelection !: boolean
 
   constructor(public storageService: StorageService){
-    console.log("select component called")
     super()
   }
   
   ngOnInit(): void {
     const value = this.defaultValue===""?null:this.defaultValue
-    console.log("zzzzzzzzzzzzzzzzzzzzzzzz",this)
-    this.formGroups.addControl(this.fieldName,new FormControl(value,[this.fieldMeta.validate.bind(this)]))
-    console.log("select component options ",this.fieldMeta.options) 
-    this.options = this.fieldMeta.options
+    console.log("sdhfkjsdfkj",this.fieldMeta.options)
+    console.log(">>>>>>",this.fieldName)
     this.multipleSelection = this.fieldMeta.multipleSelection?this.fieldMeta.multipleSelection:false
+    console.log("multiple Selection>>>",this.multipleSelection)
+    this.formGroups.addControl(this.fieldName,new FormControl(value,[this.fieldMeta.validate.bind(this)]))
+    console.log("helliii")
+    this.options = this.fieldMeta.options
   }
 }

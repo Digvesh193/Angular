@@ -12,12 +12,13 @@ import { NgSelectModule } from '@ng-select/ng-select';
 import { TextAreaComponent } from './text-area/text-area.component';
 import { DateTimeComponent } from './date-time/date-time.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatNativeDateModule } from '@angular/material/core';
-import {MatButtonModule} from '@angular/material/button';
+import { MatButtonModule } from '@angular/material/button';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AddComponentComponent } from './add-component/add-component.component';
 import { OptionsComponent } from './options/options.component'
+
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 @NgModule({
   declarations: [
