@@ -7,35 +7,12 @@ import { Validation } from "./validator.class";
     selector:"[BaseComponent]"
 })
 
-export class BaseComponent extends Validation implements FieldClass,Validator {
-    
-    
+export class BaseComponent {
     @Input() formGroups !: FormGroup
     @Input() fieldMeta!: FieldClass
     
     constructor(){
-        super()
-        console.log("BaseComponent Called")
-    }
-
-    validate(control: AbstractControl<any, any>): ValidationErrors | null {
-        const isValid = this.requiredValidator(this.isRequired,control,this.type)
-        if(isValid){
-            return isValid
-        }
-        switch(this.type){
-            case "email":
-               return this.emailValidator(control,this.isRequired)
-            case "phone":
-               return this.phoneValidator(control,this.isRequired)
-            case "select":
-                return this.selectValidator(control,this.fieldMeta.multipleSelection,this.isRequired)
-            case "text":
-            case "textarea":
-            case "password":
-                return this.textValidator(control,this.minLength,this.maxLength,this.isRequired)
-        }
-        return null
+      
     }
     
     get displayName(): string {
@@ -59,9 +36,5 @@ export class BaseComponent extends Validation implements FieldClass,Validator {
     get defaultValue(): string | number | undefined {
         return this.fieldMeta.defaultValue?this.fieldMeta.defaultValue:""
     }
-
-    // get options(){
-    //     // return this.fieldMeta.options
-    // }
 
 }

@@ -1,6 +1,13 @@
-<div class="row my-3 mx-3"[formGroup]="formGroups">
-   <ng-select [searchable]="false" [placeholder]="displayName" formControlName="fieldName" [multiple]="multipleSelection" [formControlName]="fieldName">
+<div class="row my-3 mx-3" [formGroup]="formGroups">
+   <label>{{displayName}} <span *ngIf="isRequired" style="color:red">*</span></label>
+   <ng-select [searchable]="false" formControlName="fieldName" [multiple]="multipleSelection" [formControlName]="fieldName">
       <ng-option  *ngFor="let option of options" [value]="option.value">{{option.value}}</ng-option>
    </ng-select>
-   <p *ngIf="(formGroups.controls[fieldName].invalid && !formGroups.controls[fieldName].untouched) || (storageService.isSubmited && formGroups.controls[fieldName].invalid)" style="color: red;">{{ this.formGroups.controls[this.fieldName].errors?.['error']}}</p>
+   <!-- <h1>{{formGroups.controls[this.fieldName].errors?.['error']}}</h1> -->
+   <!-- <select></select> -->
+   <!-- <select [formControlName]="fieldName" [multiple]="multipleSelection">
+      <option value="" disabled>Select {{fieldName}}</option>
+      <option *ngFor="let option of options"  [value]="option.value">{{option.value}}</option>
+   </select> -->
+   <p *ngIf="(formGroups.controls[fieldName].invalid && !formGroups.controls[fieldName].untouched) || (storageService.isSubmited && formGroups.controls[fieldName].invalid)" style="color: red;">{{ formGroups.controls[this.fieldName].errors?.['error']}}</p>
 </div>

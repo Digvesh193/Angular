@@ -1,19 +1,23 @@
-import { Component, ElementRef, Input, OnInit, ViewChild, ViewContainerRef } from '@angular/core';
+import { AfterContentChecked, AfterViewChecked, ChangeDetectionStrategy, Component, DoCheck, ElementRef, Input, OnChanges, OnInit, SimpleChanges, ViewChild, ViewContainerRef } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Field, inputJSON } from '../interface/form.interface';
+import { StorageService } from '../service/storage.service';
 
 @Component({
   selector: 'app-form-creator',
   templateUrl: './form-creator.component.html',
-  styleUrls: ['./form-creator.component.css']
+  styleUrls: ['./form-creator.component.css'],
+  changeDetection:ChangeDetectionStrategy.OnPush
 })
 export class FormCreatorComponent implements OnInit{
+
+  Name : string = "digvesh"
 
   @Input() fields!:Array<Field>
   @ViewChild("dynamicFormComponent",{static:true,read:ViewContainerRef}) dynamicFormComponent !: ViewContainerRef
   
-
-  constructor(){
+  x = true
+  constructor(public storageSerive : StorageService){
    
   }
 
@@ -24,11 +28,14 @@ export class FormCreatorComponent implements OnInit{
       compInstance.formGroups = data.componentInput.formGroup
       compInstance.fieldMeta = data.componentInput.fieldMeta
     })
-    
-    
   }
-  onSubmit(){
-    
-  }
-  
+
+
+  addDynamicComponent(data:Field){
+    const compRef = this.dynamicFormComponent.createComponent(data.componentToRender)
+    const compInstance = compRef.instance
+    compInstance.formGroups = data.componentInput.formGroup
+    compInstance.fieldMeta = data.componentInput.fieldMeta
+  }  
 }
+

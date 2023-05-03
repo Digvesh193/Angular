@@ -1,5 +1,5 @@
 import { Type } from "@angular/core"
-import { FormGroup } from "@angular/forms";
+import { FormGroup, ValidationErrors } from "@angular/forms";
 
 export interface inputJSON {
     displayName:string,
@@ -28,6 +28,7 @@ export interface FieldClass{
    get maxLength():string
    get isRequired():boolean
    get defaultValue():string | number | undefined
+   validate(control:any):ValidationErrors |  null
 }
 
 export interface SelectFieldClass{

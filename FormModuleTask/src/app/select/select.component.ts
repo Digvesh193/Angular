@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, DoCheck, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { BaseComponent } from '../BaseComponent/baseComponent.directive';
 import { Options } from '../interface/form.interface';
@@ -7,7 +7,8 @@ import { StorageService } from '../service/storage.service';
 @Component({
   selector: 'app-select',
   templateUrl: './select.component.html',
-  styleUrls: ['./select.component.css']
+  styleUrls: ['./select.component.css'],
+  // changeDetection:ChangeDetectionStrategy.OnPush
 })
 export class SelectComponent extends BaseComponent implements OnInit {
 
@@ -15,12 +16,15 @@ export class SelectComponent extends BaseComponent implements OnInit {
   multipleSelection !: boolean
 
   constructor(public storageService: StorageService){
+    console.log("select component called")
     super()
-    // console.log("select options called")
   }
+  
   ngOnInit(): void {
     const value = this.defaultValue===""?null:this.defaultValue
-    this.formGroups.addControl(this.fieldName,new FormControl(value,[this.validate.bind(this)]))
+    console.log("zzzzzzzzzzzzzzzzzzzzzzzz",this)
+    this.formGroups.addControl(this.fieldName,new FormControl(value,[this.fieldMeta.validate.bind(this)]))
+    console.log("select component options ",this.fieldMeta.options) 
     this.options = this.fieldMeta.options
     this.multipleSelection = this.fieldMeta.multipleSelection?this.fieldMeta.multipleSelection:false
   }

@@ -2,7 +2,7 @@ import { AbstractControl, ValidationErrors } from "@angular/forms";
 
 export class Validation{
     constructor(){
-        console.log("Validation called")
+        
     }
 
     textValidator(control: AbstractControl<any,any>,minLength:string,maxLength:string,isRequired:boolean):ValidationErrors | null{
@@ -37,6 +37,7 @@ export class Validation{
 
     selectValidator(control: AbstractControl<any,any>,multipleSelection:boolean | undefined,isRequired:boolean ):ValidationErrors | null{
         if(isRequired && !multipleSelection && control.value == null){
+            // console.log("select Validator called",control.value)
             return {error:'this field must be required'}
         }
         else if(isRequired && multipleSelection && control.value.length<=0){
@@ -52,12 +53,23 @@ export class Validation{
         case "textarea":
         case "text":
         case "password":
+        case "number":
             if(isRequired && control.value ===""){
                 return {error:'this field must be required'}
             }
             break;
        }
         return null
+    }
+
+    numberValidator(isRequired:boolean,control: AbstractControl<any,any>,minLength:string,maxLength:string):ValidationErrors | null{
+        if(isRequired && control.value<parseInt(minLength)){
+            return {error:`number should not be lessthan ${minLength}`}
+        }
+        else if(isRequired && control.value>parseInt(maxLength)){
+            return {error:`number should not be greaterthan ${maxLength}`}
+        }
+        return null;
     }
 
 }

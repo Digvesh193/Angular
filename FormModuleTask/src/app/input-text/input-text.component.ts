@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, DoCheck, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { BaseComponent } from '../BaseComponent/baseComponent.directive';
 import { StorageService } from '../service/storage.service';
@@ -6,19 +6,18 @@ import { StorageService } from '../service/storage.service';
 @Component({
   selector: 'app-input-text',
   templateUrl: './input-text.component.html',
-  styleUrls: ['./input-text.component.css']
+  styleUrls: ['./input-text.component.css'],
+  changeDetection:ChangeDetectionStrategy.OnPush
 })
 export class InputTextComponent extends BaseComponent implements OnInit {
 
-
-    errorMessage !: string
+    Name : string = "digvesh"
       constructor(public storageService : StorageService){
         super()
       }
-      ngOnInit(): void { 
-        console.log("metadaa",this.fieldMeta)
-        
-        this.formGroups.addControl(this.fieldName,new FormControl(this.defaultValue,[this.validate.bind(this)]))
-        console.log("helllosdfsdfffffsdf")
+
+    ngOnInit(): void { 
+        this.formGroups.addControl(this.fieldName,new FormControl(this.defaultValue,[this.fieldMeta.validate]))
       }   
+
 }

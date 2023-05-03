@@ -1,0 +1,8 @@
+<div [formGroup]="formGroups">
+    <div [formArrayName]="'selectForm'">
+        <ng-container *ngFor="let option of getSkill;index as i" [formGroupName]="i">
+            <input type="text" [placeholder]="'label'" [formControlName]="'label'"><input type="text" [placeholder]="'value'" [formControlName]="'value'"><button (click)="deleteOption(i)" class="btn btn-sm btn-danger">Delete</button><br>
+        </ng-container>
+        <button (click)="onAddSkill()" class="btn btn-success btn-sm">Add</button>
+    </div>
+</div>
